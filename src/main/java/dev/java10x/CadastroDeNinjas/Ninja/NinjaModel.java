@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Ninja;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
 
 //JPA = java persistence API
@@ -13,6 +14,11 @@ public class NinjaModel {
     private String nome;
     private int idade;
     private String aldeia;
+
+    //Many referencia a classe da variavel e o one a classe que está inserida, então, muitos ninjas tem uma missão 1-N
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // chave estrangeira da missao, (pk da missão)
+    private MissaoModel missoes;
 
 
     public NinjaModel() {}
