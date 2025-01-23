@@ -16,13 +16,20 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
 
-    @Column(unique = true) // única no banco de dados
+    @Column(unique = true, name = "email")
+    // única no banco de dados
     private String email;
 
+    @Column(name = "idade")
     private int idade;
+
+    @Column(name = "aldeia")
     private String aldeia;
 
     //Many referencia a classe da variavel e o one a classe que está inserida, então, muitos ninjas tem uma missão 1-N

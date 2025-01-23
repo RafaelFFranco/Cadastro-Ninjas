@@ -17,8 +17,13 @@ public class MissaoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "descrição")
     private String descricao;
+
+    @Column(name = "rank")
     private RankMissaoEnum rank;
 
 
