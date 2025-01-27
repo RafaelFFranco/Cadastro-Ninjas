@@ -20,25 +20,25 @@ public class NinjaController {
     }
 
     //Procurara Ninja por id (READ)
-    @GetMapping("/procurarNinjaPorId")
+    @GetMapping("/procurarPorID")
     public String mostrarNinjasPorId(){
-        return "Criado com sucesso";
+        return "Listado com sucesso";
     }
     //Mostrar todos os Ninjas (READ)
     @GetMapping("/all")
     public String mostrarTodosNinjas(){
-        return "Criado com sucesso";
+        return "Listado com sucesso";
     }
 
     //Alterar dados dos ninjas (UPDATE)
     @PutMapping("/alterarID")
     public String alterarNinja(){
-        return "Criado com sucesso";
+        return "Alterado com sucesso";
     }
 
     //Deletar Ninja (DELETE)
     @DeleteMapping("/deletarID")
     public String deletarNinjaId(){
-        return "Criado com sucesso";
+        return "Deletado com sucesso";
     }
 }

@@ -13,7 +13,7 @@ public class MissoesController {
         return "Criado com sucesso!";
     }
 
-    @PutMapping("/alterar")
+    @PutMapping("/alterarID")
     public String alterarMissao(){
         return "Alterado com sucesso!";
     }
@@ -23,7 +23,12 @@ public class MissoesController {
         return "Listado de missoes";
     }
 
-    @DeleteMapping("/deletar")
+    @GetMapping("/procurarPorID")
+    public String mostrarMissaoPorId(){
+        return "Listado com sucesso";
+    }
+
+    @DeleteMapping("/deletarID")
     public String deletarMissao(){
         return "Deletado com sucesso!";
     }
