@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController //declarar que é um controller
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
 
     @GetMapping("/BemVindo") //Ação de Get
@@ -20,7 +20,7 @@ public class NinjaController {
     }
 
     //Procurara Ninja por id (READ)
-    @GetMapping("/")
+    @GetMapping("/procurarNinjaPorId")
     public String mostrarNinjasPorId(){
         return "Criado com sucesso";
     }
