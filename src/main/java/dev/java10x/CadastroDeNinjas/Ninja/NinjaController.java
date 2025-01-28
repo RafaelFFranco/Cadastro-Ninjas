@@ -11,43 +11,44 @@ public class NinjaController {
 
     //Injeção de dependência
     private NinjaService ninjaService;
+
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
     }
 
 
     @GetMapping("/BemVindo") //Ação de Get
-    public String boasVindas(){
+    public String boasVindas() {
         return "Boas Vindas";
     }
 
     //Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel){
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel) {
         return ninjaService.criarNinja(ninjaModel);
     }
 
     //Procurara Ninja por id (READ)
     @GetMapping("/listar/{id}")
-    public NinjaModel buscarNinjaId(@PathVariable Long id){
+    public NinjaModel buscarNinjaId(@PathVariable Long id) {
         return ninjaService.buscarNinjaId(id);
     }
 
     //Mostrar todos os Ninjas (READ)
     @GetMapping("/listar")
-    public List<NinjaModel> listarNinjas(){
+    public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
     }
 
     //Alterar dados dos ninjas (UPDATE)
     @PutMapping("/alterarID")
-    public String alterarNinja(){
+    public String alterarNinja() {
         return "Alterado com sucesso";
     }
 
     //Deletar Ninja (DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaId(){
-        return "Deletado com sucesso";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinjaId(@PathVariable Long id) {
+        ninjaService.deleteNinja(id);
     }
 }
