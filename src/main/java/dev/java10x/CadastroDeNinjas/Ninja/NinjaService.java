@@ -24,9 +24,14 @@ public class NinjaService {
 
     //Busca ninja no BD
     //Optional é para tentar buscar algo que existe
-    //Esse método retorna um NinjaModel ou null
+    //Esse metodo retorna um NinjaModel ou null
     public NinjaModel buscarNinjaId(Long id){
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
+    }
+
+    //Cria um novo Ninja no BD
+    public NinjaModel criarNinja(NinjaModel ninja){
+       return ninjaRepository.save(ninja);
     }
 }
