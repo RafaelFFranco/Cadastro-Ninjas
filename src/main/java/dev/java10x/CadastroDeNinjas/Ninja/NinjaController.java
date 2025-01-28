@@ -11,7 +11,6 @@ public class NinjaController {
 
     //Injeção de dependência
     private NinjaService ninjaService;
-
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
     }
@@ -41,9 +40,9 @@ public class NinjaController {
     }
 
     //Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarID")
-    public String alterarNinja() {
-        return "Alterado com sucesso";
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinja(@RequestBody NinjaModel ninjaModel, @PathVariable Long id) {
+        return ninjaService.atualizarNinja(ninjaModel, id);
     }
 
     //Deletar Ninja (DELETE)
