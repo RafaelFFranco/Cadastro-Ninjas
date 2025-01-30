@@ -32,6 +32,9 @@ public class NinjaModel {
     @Column(name = "aldeia")
     private String aldeia;
 
+    @Column(name = "rank")
+    private String rank;
+
     //Many referencia a classe da variavel e o one a classe que está inserida, então, muitos ninjas tem uma missão 1-N
     @ManyToOne
     @JoinColumn(name = "missoes_id") // chave estrangeira da missao, (pk da missão)
