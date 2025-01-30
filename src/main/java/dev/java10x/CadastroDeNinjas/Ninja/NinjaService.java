@@ -1,6 +1,5 @@
 package dev.java10x.CadastroDeNinjas.Ninja;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,10 +9,13 @@ import java.util.Optional;
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
-    public NinjaService(NinjaRepository ninjaRepository) {
-        this.ninjaRepository = ninjaRepository;
-    }
+    private NinjaMapper ninjaMapper;
 
+
+    public NinjaService(NinjaRepository ninjaRepository,NinjaMapper ninjaMapper) {
+        this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
+    }
 
     //Listar todos os Ninjas
     //resgata todos os ninjas cadastrados
@@ -31,8 +33,10 @@ public class NinjaService {
     }
 
     //Cria um novo Ninja no BD
-    public NinjaModel criarNinja(NinjaModel ninja){
-       return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
+        ninjaModel = ninjaRepository.save(ninjaModel);
+       return ninjaMapper.map(ninjaModel);
     }
 
     //Deleta um Ninja do BD
