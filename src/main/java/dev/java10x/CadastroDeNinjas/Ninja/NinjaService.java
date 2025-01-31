@@ -30,7 +30,7 @@ public class NinjaService {
 
     //Busca ninja no BD
     //Optional é para tentar buscar algo que existe
-    //Esse metodo retorna um NinjaModel ou null
+    //Esse metodo retorna um NinjaDTO ou null
     public NinjaDTO buscarNinjaId(Long id) {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.map(ninjaMapper::map).orElse(null);
